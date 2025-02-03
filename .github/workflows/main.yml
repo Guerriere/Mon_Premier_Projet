@@ -1,17 +1,1 @@
-name: Déployer les fichiers locaux
 
-on:
-  schedule:
-    - cron: '0 * * * *' # Toutes les heures
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Copier les fichiers locaux
-        uses: ad-m/git-push-action@v1
-        with:
-          directory: './mon-dossier-a-deployer'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
